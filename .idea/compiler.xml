@@ -6,14 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="rpc-consumer" />
         <module name="rpc-core-starter" />
+        <module name="rpc-provider" />
+        <module name="rpc-api" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="rpc" options="-parameters" />
+      <module name="rpc-api" options="-parameters" />
+      <module name="rpc-consumer" options="-parameters" />
       <module name="rpc-core-starter" options="-parameters" />
+      <module name="rpc-provider" options="-parameters" />
     </option>
   </component>
 </project>
