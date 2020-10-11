@@ -24,7 +24,7 @@ public class ServiceDiscovery {
 
     public ServiceDiscovery(String registoryAddress) throws ZkConnectException {
         try {
-            ZooKeeper zooKeeper = new ZooKeeper(registoryAddress, 2000, new Watcher() {
+            ZooKeeper zooKeeper = new ZooKeeper(registoryAddress, 20000, new Watcher() {
                 @Override
                 public void process(WatchedEvent event) {
                     log.info("consumer connect zk success!");

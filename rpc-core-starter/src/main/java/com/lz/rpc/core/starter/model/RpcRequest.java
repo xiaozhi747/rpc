@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @Builder
 @ToString
-@NoArgsConstructor
+//@NoArgsConstructor
 public class RpcRequest {
 
     private String requestId;

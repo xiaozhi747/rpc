@@ -9,9 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author ：linzhi
  * @date ：Created in 2020/10/10 23:05
  */
-@Getter
-@Setter
-@Builder
 @ConfigurationProperties(prefix = "spring.rpc")
 public class RpcProperties {
 
@@ -38,5 +35,51 @@ public class RpcProperties {
     /**
      * 超时时间
      */
-    private int timeout = 2000;
+    private int timeout = 20000;
+
+    public String getRegisterAddress() {
+        return registerAddress;
+    }
+
+    public RpcProperties setRegisterAddress(String registerAddress) {
+        this.registerAddress = registerAddress;
+        return this;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public RpcProperties setPort(int port) {
+        this.port = port;
+        return this;
+    }
+
+    public String getServerName() {
+        return serverName;
+    }
+
+    public RpcProperties setServerName(String serverName) {
+        this.serverName = serverName;
+        return this;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public RpcProperties setHost(String host) {
+        this.host = host;
+        return this;
+    }
+
+    public int getTimeout() {
+        return timeout;
+    }
+
+    public RpcProperties setTimeout(int timeout) {
+        this.timeout = timeout;
+        return this;
+    }
+
 }
