@@ -1,4 +1,4 @@
-# 一个基于Netty+Spring+Zookeeper 的轻量级RPC框架
+# 一个基于Netty+Spring+Zookeeper 的轻量级分布式RPC框架
 **Feature：**  
 1、使用 Netty 实现网络传输  
 2、使用 Protostuff 实现序列化和反序列化  
