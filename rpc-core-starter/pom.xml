@@ -49,13 +49,15 @@
         </dependency>
     </dependencies>
 
-    <build>
+ <!--
+    todo: 注释掉build，需要生成可执行的jar时才打开注释
+   <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
 </project>

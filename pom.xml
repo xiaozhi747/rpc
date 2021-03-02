@@ -46,6 +46,8 @@
         </dependency>
     </dependencies>
 
+<!--
+    todo: 注释掉build，需要生成可执行的jar时才打开注释
     <build>
         <plugins>
             <plugin>
@@ -53,5 +55,5 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 </project>
