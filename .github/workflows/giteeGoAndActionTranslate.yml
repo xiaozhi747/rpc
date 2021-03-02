@@ -20,7 +20,7 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
       - run: |
-      	  mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false -DarchetypeCatalog=internal -DgroupId=com.gitee.go.maven -DartifactId=helloworld -T20
+          mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false -DarchetypeCatalog=internal -DgroupId=com.gitee.go.maven -DartifactId=helloworld -T20
           cd helloworld 
           mvn clean
           mvn compile
