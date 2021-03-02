@@ -1,0 +1,30 @@
+name: gitee-go-maven-example
+
+on: 
+  push： 
+  	branches: 
+  	  - master
+  workflow_dispatch: 
+
+jobs:
+  maven-build-stage: 
+    name: maven-build-stage
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with: 
+          java-version: 1.8
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots verify
+      - run: |
+      	  mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false -DarchetypeCatalog=internal -DgroupId=com.gitee.go.maven -DartifactId=helloworld -T20
+          cd helloworld 
+          mvn clean
+          mvn compile
+          mvn test-compile
+          mvn package
+          java -cp target/helloworld-1.0-SNAPSHOT.jar com.gitee.go.maven.App
+          ls target/
