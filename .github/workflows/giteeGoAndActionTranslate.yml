@@ -1,9 +1,9 @@
 name: gitee-go-maven-example
 
-on: 
-  push： 
-  	branches: 
-  	  - master
+on:
+  push:
+    branches:
+      - master
   workflow_dispatch: 
 
 jobs:
