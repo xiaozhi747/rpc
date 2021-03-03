@@ -3,25 +3,49 @@ name: artifact-test
 on: [push]
 
 jobs:
-  build_and_test:
+  job_1:
+    name: Add 3 and 7
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: npm install, build, and test
+      - shell: bash
         run: |
-          npm install
-          npm run build --if-present
-          npm test
-      - name: Archive production artifacts
+          expr 3 + 7 > math-homework.txt
+      - name: Upload math result for job 1
         uses: actions/upload-artifact@v2
         with:
-          name: dist-without-markdown
-          path: |
-            dist
-            !dist/**/*.md
-      - name: Archive code coverage results
+          name: homework
+          path: math-homework.txt
+
+  job_2:
+    name: Multiply by 9
+    needs: job_1
+    runs-on: windows-latest
+    steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v2
+        with:
+          name: homework
+      - shell: bash
+        run: |
+          value=`cat math-homework.txt`
+          expr $value \* 9 > math-homework.txt
+      - name: Upload math result for job 2
         uses: actions/upload-artifact@v2
         with:
-          name: code-coverage-report
-          path: output/test/code-coverage.html
+          name: homework
+          path: math-homework.txt
+
+  job_3:
+    name: Display results
+    needs: job_2
+    runs-on: macOS-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v2
+        with:
+          name: homework
+      - name: Print the final result
+        shell: bash
+        run: |
+          value=`cat math-homework.txt`
+          echo The result is $value
